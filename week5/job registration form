@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        form {
+            width: 300px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 5px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Job Registration Form</h2>
+
+<form id="jobForm">
+    <label>Name:</label>
+    <input type="text" id="name">
+    <span id="nameError" class="error"></span>
+
+    <label>Email:</label>
+    <input type="text" id="email">
+    <span id="emailError" class="error"></span>
+
+    <label>Contact Number:</label>
+    <input type="text" id="contact">
+    <span id="contactError" class="error"></span>
+
+    <br><br>
+    <input type="submit" value="Register">
+</form>
+
+<p id="result"></p>
+
+<script>
+document.getElementById("jobForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let contact = document.getElementById("contact").value.trim();
+
+    let nameRegex = /^[A-Za-z ]{3,}$/;
+    let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    let contactRegex = /^[0-9]{10}$/;
+
+    let valid = true;
+
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("contactError").innerHTML = "";
+    document.getElementById("result").innerHTML = "";
+
+    if (!nameRegex.test(name)) {
+        document.getElementById("nameError").innerHTML =
+            "Name should contain only letters and be at least 3 characters long.";
+        valid = false;
+    }
+
+    if (!emailRegex.test(email)) {
+        document.getElementById("emailError").innerHTML =
+            "Enter a valid email address.";
+        valid = false;
+    }
+
+    if (!contactRegex.test(contact)) {
+        document.getElementById("contactError").innerHTML =
+            "Contact number must contain exactly 10 digits.";
+        valid = false;
+    }
+
+    if (valid) {
+        document.getElementById("result").innerHTML =
+            "Registration Successful";
+        document.getElementById("result").style.color = "green";
+    }
+});
+</script>
+
+</body>
+</html>
