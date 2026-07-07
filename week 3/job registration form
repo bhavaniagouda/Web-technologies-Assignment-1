@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Registration Form</title>
+</head>
+<body>
+
+<h2 align="center">Job Registration Form</h2>
+
+<form>
+
+<table align="center" cellpadding="8">
+
+<tr>
+    <td>Name:</td>
+    <td><input type="text" name="name" required></td>
+</tr>
+
+<tr>
+    <td>Gender:</td>
+    <td>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Other"> Other
+    </td>
+</tr>
+
+<tr>
+    <td>Languages Known:</td>
+    <td>
+        <input type="checkbox" name="lang" value="English"> English
+        <input type="checkbox" name="lang" value="Telugu"> Telugu
+        <input type="checkbox" name="lang" value="Hindi"> Hindi
+        <input type="checkbox" name="lang" value="Tamil"> Tamil
+    </td>
+</tr>
+
+<tr>
+    <td>Email:</td>
+    <td><input type="email" name="email" required></td>
+</tr>
+
+<tr>
+    <td>Contact Number:</td>
+    <td><input type="tel" name="contact" required></td>
+</tr>
+
+<tr>
+    <td>Address:</td>
+    <td>
+        <textarea rows="4" cols="30"></textarea>
+    </td>
+</tr>
+
+<tr>
+    <td>Preferred Job Location:</td>
+    <td>
+        <select>
+            <option>Select Location</option>
+            <option>Hyderabad</option>
+            <option>Bangalore</option>
+            <option>Chennai</option>
+            <option>Pune</option>
+            <option>Mumbai</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td>About Yourself:</td>
+    <td>
+        <textarea rows="5" cols="30"
+        placeholder="Describe yourself"></textarea>
+    </td>
+</tr>
+
+<tr>
+    <td>Upload CV:</td>
+    <td>
+        <input type="file" name="cv">
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2" align="center">
+        <input type="submit" value="Submit">
+        <input type="reset" value="Clear">
+    </td>
+</tr>
+
+</table>
+
+</form>
+
+</body>
+</html>
