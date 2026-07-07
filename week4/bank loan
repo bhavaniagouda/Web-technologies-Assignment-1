@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Loan EMI Calculator</title>
+
+    <script>
+        function calculateEMI()
+        {
+            var name = document.getElementById("name").value;
+            var occupation = document.getElementById("occupation").value;
+            var loan = parseFloat(document.getElementById("loan").value);
+            var rate = parseFloat(document.getElementById("rate").value);
+            var years = parseInt(document.getElementById("years").value);
+
+            var R = rate / (12 * 100);
+            var N = years * 12;
+
+            var EMI =
+                (loan * R * Math.pow(1 + R, N)) /
+                (Math.pow(1 + R, N) - 1);
+
+            document.getElementById("result").innerHTML =
+                "<h3>EMI Details</h3>" +
+                "Name: " + name + "<br>" +
+                "Occupation: " + occupation + "<br>" +
+                "Loan Amount: ₹" + loan + "<br>" +
+                "Rate of Interest: " + rate + "%<br>" +
+                "Tenure: " + years + " Years<br>" +
+                "Monthly EMI: ₹" + EMI.toFixed(2);
+        }
+    </script>
+</head>
+
+<body>
+
+<h2 align="center">Bank Loan Application Form</h2>
+
+<form>
+<table align="center" cellpadding="8">
+
+<tr>
+    <td>Name:</td>
+    <td><input type="text" id="name" required></td>
+</tr>
+
+<tr>
+    <td>Occupation:</td>
+    <td><input type="text" id="occupation" required></td>
+</tr>
+
+<tr>
+    <td>Loan Amount:</td>
+    <td><input type="number" id="loan" required></td>
+</tr>
+
+<tr>
+    <td>Rate of Interest (%):</td>
+    <td><input type="number" id="rate" step="0.01" required></td>
+</tr>
+
+<tr>
+    <td>Tenure (Years):</td>
+    <td><input type="number" id="years" required></td>
+</tr>
+
+<tr>
+    <td colspan="2" align="center">
+        <input type="button"
+               value="Calculate EMI"
+               onclick="calculateEMI()">
+
+        <input type="reset" value="Clear">
+    </td>
+</tr>
+
+</table>
+</form>
+
+<hr>
+
+<div id="result" align="center"></div>
+
+</body>
+</html>
